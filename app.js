@@ -128,11 +128,21 @@ switch(gameClass){
                 gameOver();
             }
         }
-        
-        
         break;
     case '2':
         console.log('You chose Mage!');
+        playerScore+10;
+        console.log('Would you like to purchase a libram?');
+        if(getAnswer()){
+            playerScore+=10;
+            playerGold-=500;
+            console.log('As a mage you stay at the Wizards college and study your librams all day. No adventuring for you.');
+            gameOver();
+        } else {
+            playerScore+=200;
+            console.log('With the money you saved from not purchasing a Libram, you go out for a night on the town!');
+            gameOver();
+        }
         break;
     case '3':
         console.log('You chose Rogue!');
