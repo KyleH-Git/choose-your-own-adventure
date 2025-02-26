@@ -146,7 +146,62 @@ switch(gameClass){
         break;
     case '3':
         console.log('You chose Rogue! Choose your adventure with Y/N!');
-
+        playerScore+=10;
+        playerGold+=100;
+        console.log('Sneaking through the city streets at night you see an adventurer walking down an alley. Would you like to pickpocket him?')
+        if(getAnswer()){
+            playerScore+=10;
+            playerGold+=500;
+            console.log('You pilfer 500 gold from the adventurer!');
+            console.log('Do you attempt to steal the adventurer\'s weapon as well?');
+            if(getAnswer()){
+                playerScore-=10;
+                console.log('The adventurer notices your efforts, and reports you to the guards. Attempt to flee?');
+                if(getAnswer()){
+                    playerScore+=100;
+                    console.log('You flee the town, and are able to escape into the woods. Your days of thievery are just beginning...');
+                    gameOver();
+                } else {
+                    playerScore+=50;
+                    console.log('You are apprehended by the guards, and put into a cell to pay for your crime.')
+                    console.log('Attempt to escape?');
+                    if(getAnswer()){
+                        playerScore+=10;
+                        console.log('You successfully manage to pick the cell lock, and slink into the shadows.');
+                        gameOver();
+                    } else {
+                        playerScore+=500;
+                        console.log('Accepting your fate, you decide to only steal from the rich and give to the poor from now on.');
+                        gameOver();
+                    }
+                }
+            } else {
+                playerScore +=100;
+                console.log('You decide against robbing from the adventurer again, but see a dagger stickng out of a barrel nearby. Do you help yourself to the weapon?');
+                if(getAnswer()){
+                    playerScore+=50;
+                    weaponGet = true;
+                    console.log('You successfully pick up the dagger unseen, sticking it in your pouch.');
+                    gameOver();
+                } else {
+                    playerScore+=10;
+                    console.log('Skipping over the knife, content with your winnings from tonight, you retire to your thieves den to lay low.');
+                    gameOver();
+                }
+            }
+        } else {
+            console.log('A noble thief such as yourself should be in an adventuring party. Heading to the guild you manage to fine a group looking for a Rogue.');
+            console.log('Do you join them?');
+            if(getAnswer()){
+                playerScore+=100;
+                console.log('Joining the party on their quest to slay a local Dragon, you feel content with your new path.');
+                gameOver();
+            } else {
+                playerScore-=10;
+                console.log('Refusing their offer, you continue your adventures solo.');
+                gameOver();
+            }
+        }
         break;
     default:
         console.log('How did you get here? ');
