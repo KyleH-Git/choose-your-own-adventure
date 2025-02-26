@@ -6,7 +6,7 @@ function getAnswer(){
     let answer;
     while(answer !== 'Y' || answer !== 'y' || answer !== 'N' || answer !== 'n'){
         answer = prompt('(Y/N)');
-        if(answer !== 'Y' || answer !== 'y' || answer !== 'N' || answer !== 'n'){
+        if(answer === 'Y' || answer === 'y' || answer === 'N' || answer === 'n'){
             break;
         }
         console.log("Invalid answer, please answer Y/N.");
@@ -23,7 +23,7 @@ function gameOver(){
 
 let gameClass = 0;
 while(gameClass !== '1' || gameClass !== '2' || gameClass !== '3'){
-        gameClass = prompt('Pick a class: 1 - Warrior, 2 - Mage, 3 - Rogue\n');
+        gameClass = prompt('Pick a class: 1 - Warrior, 2 - Mage, 3 - Rogue. ');
         if(gameClass === '1' || gameClass === '2' || gameClass === '3'){
             break;
         }
@@ -39,7 +39,7 @@ let weaponGet = false;
 
 switch(gameClass){
     case '1':
-        console.log('You chose Warrior!');
+        console.log('You chose Warrior! Choose your adventure with Y/N!');
         console.log('As a warrior fresh off of a quest you return to town. Would you like to check in at the guild?');
         if(getAnswer()){
             console.log('You approach the guild. Entering the beaten doors, you approach the quest counter and turn in your spoils.\nThe reward was 500 gold!');
@@ -130,7 +130,7 @@ switch(gameClass){
         }
         break;
     case '2':
-        console.log('You chose Mage!');
+        console.log('You chose Mage! Choose your adventure with Y/N!');
         playerScore+10;
         console.log('Would you like to purchase a libram?');
         if(getAnswer()){
@@ -145,8 +145,9 @@ switch(gameClass){
         }
         break;
     case '3':
-        console.log('You chose Rogue!');
+        console.log('You chose Rogue! Choose your adventure with Y/N!');
+
         break;
     default:
-        console.log('How did you get here?');
+        console.log('How did you get here? ');
 }
